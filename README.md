@@ -3,7 +3,7 @@
 #### Instructions
 1. Complete the project setup as listed below
 2. Complete the Excerise
-3. Email a synopsis of your work and the link to your git repo containing the completed exercise to: Ruslan_Kashapau@epam.com
+3. Email a link to your EPAM git repo containing the completed exercise to: Ruslan_Kashapau@epam.com
 
 
 #### Expectations
@@ -24,7 +24,7 @@ We will be evaluating
 5. Please do not use a BDD framework.
 
 #### Project Setup
-1. Clone this project to your git account in a public repo
+1. Clone this project to your EPAM git account
 2. Setup the project in your IDE
 3. Open the index.html file from src/test/resource/files in a browser
 4. Copy the url from the browser and update the url value in src/test/resource/config.properties to be the copied url.
