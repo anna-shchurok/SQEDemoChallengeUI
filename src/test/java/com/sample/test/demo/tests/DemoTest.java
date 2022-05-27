@@ -1,7 +1,7 @@
 package com.sample.test.demo.tests;
 
-import org.testng.annotations.Test;
 import com.sample.test.demo.TestBase;
+import org.testng.annotations.Test;
 
 public class DemoTest extends TestBase {
 

@@ -1,6 +1,8 @@
 package com.sample.test.demo.constants;
 
 
+import java.util.Arrays;
+
 public enum PizzaToppings {
     MANGOS("Diced Mango"),
     OLIVES("Olives"),
@@ -12,13 +14,16 @@ public enum PizzaToppings {
     PROVOLNE("Provolone cheese"),
     EXTRACHEESE("Extra cheese"),
     MOZZARELLA("Mozzarella cheese"),
-    PARMASAN("Parmesan cheese")
-
-    ;
+    PARMASAN("Parmesan cheese");
 
     private String displayName;
 
-    private PizzaToppings(String displayName) {
+    public static PizzaToppings getPizzaToppingByName(String name) {
+        return Arrays.stream(values()).filter(p -> name.contains(p.displayName)).findAny()
+                .orElseThrow(() -> new IllegalArgumentException("No pizza topping found with name: " + name));
+    }
+
+    PizzaToppings(String displayName) {
         this.displayName = displayName;
     }
 

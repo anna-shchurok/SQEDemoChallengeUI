@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Happy Path suite" verbose="10" parallel="classes">
+    <test name="Tests">
+        <groups>
+            <run>
+                <include name="Happy path"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="com.sample.test.demo.tests.exercise.*"/>
+        </packages>
+    </test>
+</suite>

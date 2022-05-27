@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Full pack of all tests" verbose="10" parallel="classes">
+    <test name="Tests">
+        <packages>
+            <package name="com.sample.test.demo.tests.exercise.*"/>
+        </packages>
+    </test>
+</suite>

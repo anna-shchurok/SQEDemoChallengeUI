@@ -1,6 +1,8 @@
 package com.sample.test.demo.constants;
 
 
+import java.util.Arrays;
+
 public enum PizzaTypes {
     SMALL_NOTOPPINGS("Small 6 Slices - no toppings", 6.75),
     SMALL_ONETOPPINGS("Small 6 Slices - 1 topping", 7.50),
@@ -11,9 +13,14 @@ public enum PizzaTypes {
     private String displayName;
     private double cost;
 
-    private PizzaTypes(String displayName, double cost) {
+    PizzaTypes(String displayName, double cost) {
         this.displayName = displayName;
         this.cost = cost;
+    }
+
+    public static PizzaTypes getPizzaTypeByName(String name) {
+        return Arrays.stream(values()).filter(p -> name.contains(p.displayName)).findAny()
+                .orElseThrow(() -> new IllegalArgumentException("No pizza type found with name: " + name));
     }
 
     public String getDisplayName() {
@@ -23,5 +30,4 @@ public enum PizzaTypes {
     public double getCost() {
         return cost;
     }
-
 }

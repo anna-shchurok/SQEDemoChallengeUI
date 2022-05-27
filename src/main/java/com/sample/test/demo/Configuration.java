@@ -1,16 +1,15 @@
 package com.sample.test.demo;
 
-import static org.testng.Assert.assertTrue;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+
+import static org.testng.Assert.assertNotNull;
 
 public class Configuration {
 
     private static final String CONFIG_FILE_NAME = "config.properties";
     private Properties configProperties;
-
-
 
     public Configuration() {
         loadProperties();
@@ -19,11 +18,11 @@ public class Configuration {
     private void loadProperties() {
         configProperties = new Properties();
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-        assertTrue(classLoader != null);
-        InputStream inputStream = classLoader.getResourceAsStream(CONFIG_FILE_NAME);
-        try {
+        assertNotNull(classLoader);
+        try (InputStream inputStream = classLoader.getResourceAsStream(CONFIG_FILE_NAME)) {
             configProperties.load(inputStream);
         } catch (final IOException e) {
+            throw new RuntimeException("Cannot load properties", e);
         }
     }
 
@@ -38,6 +37,7 @@ public class Configuration {
     public String getUrl() {
         return getProperty("url");
     }
+
     public String getProperty(String propertyName) {
         return configProperties.getProperty(propertyName);
     }
